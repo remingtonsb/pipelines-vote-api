@@ -17,20 +17,16 @@ func setupRouter() *gin.Engine {
 		payload := gin.H{}
 		voteA := 0
 		voteB := 0
-		voteC := 0
 		for _, v := range inMemoryStore {
 			switch v {
 			case "a":
 				voteA++
 			case "b":
 				voteB++
-			case "c":
-                                voteC++	
 			}
 		}
 		payload["a"] = voteA
 		payload["b"] = voteB
-		payload["c"] = voteC
 		c.JSON(http.StatusOK, payload)
 	})
 
